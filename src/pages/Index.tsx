@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import FeaturedNFTs from "../components/FeaturedNFTs";
 import AnimatedBackground from "../components/AnimatedBackground";
 import Navigation from "../components/Navigation";
+import TopNFTLeaderboard from "../components/TopNFTLeaderboard";
 
 const Index = () => {
   return (
@@ -10,6 +11,7 @@ const Index = () => {
       <Navigation />
       <Hero />
       <FeaturedNFTs />
+      <TopNFTLeaderboard />
     </main>
   );
 };
