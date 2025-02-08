@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -40,6 +41,13 @@
     @apply bg-white/10 backdrop-blur-lg border-b border-white/20;
   }
   
+  .neon-glow {
+    @apply relative;
+    box-shadow: 0 0 10px theme('colors.primary.DEFAULT'),
+                0 0 20px theme('colors.primary.DEFAULT'),
+                0 0 30px theme('colors.primary.DEFAULT');
+  }
+  
   .nft-card {
     @apply relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
   }
@@ -50,6 +58,10 @@
 
   .animate-glow {
     animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
   }
 
   .animate-gradient {
@@ -85,8 +97,19 @@
   }
 }
 
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
 @keyframes gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

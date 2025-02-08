@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Button } from "./ui/button";
@@ -61,7 +62,7 @@ const Navigation = () => {
 
           <Button 
             size="sm"
-            className="bg-primary/20 backdrop-blur-sm border border-primary/20 hover:bg-primary/30"
+            className="bg-primary/20 backdrop-blur-sm border border-primary/20 hover:bg-primary/30 neon-glow"
           >
             <Wallet className="w-4 h-4 mr-2" />
             Connect Wallet

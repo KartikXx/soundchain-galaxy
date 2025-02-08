@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Search } from "lucide-react";
@@ -58,7 +59,7 @@ const Hero = () => {
           >
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-lg h-12 px-8"
+              className="bg-primary hover:bg-primary/90 text-lg h-12 px-8 neon-glow"
             >
               Start Creating
             </Button>
@@ -84,7 +85,7 @@ const Hero = () => {
               { label: "Artists", value: "12.3K+" },
               { label: "Collectors", value: "98.1K+" }
             ].map((stat, index) => (
-              <div key={index} className="glass rounded-xl p-4">
+              <div key={index} className="glass rounded-xl p-4 animate-float" style={{ animationDelay: `${index * 0.2}s` }}>
                 <div className="text-2xl font-bold gradient-text">{stat.value}</div>
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
