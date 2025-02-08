@@ -5,6 +5,12 @@ import { Button } from "./ui/button";
 import { Moon, Sun, Wallet, Search, LogOut } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
+declare global {
+  interface Window {
+    ethereum?: any;
+  }
+}
+
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -22,7 +28,6 @@ const Navigation = () => {
   const opacity = useTransform(scrollY, [0, 100], [0, 1]);
   const height = useTransform(scrollY, [0, 100], ["5rem", "4rem"]);
 
-  // Dark mode effect
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -32,7 +37,6 @@ const Navigation = () => {
     localStorage.setItem('darkMode', isDarkMode.toString());
   }, [isDarkMode]);
 
-  // Scroll effect
   useEffect(() => {
     const unsubscribe = scrollY.onChange(latest => {
       setIsScrolled(latest > 50);
@@ -45,7 +49,7 @@ const Navigation = () => {
   };
 
   const connectWallet = async () => {
-    if (typeof window.ethereum !== 'undefined') {
+    if (typeof window !== 'undefined' && window.ethereum) {
       try {
         const accounts = await window.ethereum.request({ 
           method: 'eth_requestAccounts' 
@@ -54,7 +58,6 @@ const Navigation = () => {
         setWalletAddress(address);
         setIsWalletConnected(true);
         
-        // Get ETH balance
         const balance = await window.ethereum.request({ 
           method: 'eth_getBalance',
           params: [address, 'latest']
@@ -188,3 +191,4 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 );
 
 export default Navigation;
+
