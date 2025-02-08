@@ -49,7 +49,7 @@
   }
   
   .nft-card {
-    @apply relative overflow-hidden rounded-2xl transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
+    @apply relative overflow-hidden rounded-2xl transition-all duration-300;
   }
   
   .gradient-text {
